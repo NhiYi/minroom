@@ -1,0 +1,6 @@
+{
+  "name": "Blocksy Fashion Store",
+  "description": "Website bán quần áo phong cách WordPress theme Blocksy hiện đại, thanh lịch với giỏ hàng mini, bộ lọc sản phẩm và trải nghiệm mua sắm mượt mà.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
