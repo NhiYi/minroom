@@ -32,7 +32,7 @@ export default function App() {
   });
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [authContextMessage, setAuthContextMessage] = useState('');
-  const [authDefaultTab, setAuthDefaultTab] = useState<'login' | 'register'>('login');
+  const [authDefaultTab, setAuthDefaultTab] = useState<'login' | 'register' | 'forgot'>('login');
 
   // Dynamic products from FakeStoreAPI
   const [products, setProducts] = useState<Product[]>(PRODUCTS);
@@ -146,7 +146,7 @@ export default function App() {
     setCurrentUser(null);
   };
 
-  const openAuthModal = (contextMessage?: string, defaultTab: 'login' | 'register' = 'login') => {
+  const openAuthModal = (contextMessage?: string, defaultTab: 'login' | 'register' | 'forgot' = 'login') => {
     setAuthContextMessage(contextMessage || '');
     setAuthDefaultTab(defaultTab);
     setIsAuthOpen(true);

@@ -302,6 +302,62 @@ export async function registerToDummyJsonApi(
   }
 }
 
+// DummyJSON Authentication: Request Password Reset OTP
+export async function requestPasswordResetApi(
+  identity: string
+): Promise<{ success: boolean; message: string; otp?: string; maskedDestination?: string; error?: string }> {
+  const cleanId = identity.trim();
+  if (!cleanId) {
+    return { success: false, message: '', error: 'Vui lòng nhập email hoặc tên đăng nhập hợp lệ.' };
+  }
+
+  // Simulate network latency
+  await new Promise((resolve) => setTimeout(resolve, 600));
+
+  const isEmail = cleanId.includes('@');
+  const masked = isEmail
+    ? cleanId.replace(/^(.)(.*)(@.*)$/, (_, a, b, c) => `${a}${'*'.repeat(Math.max(b.length, 3))}${c}`)
+    : `${cleanId.slice(0, 2)}***${cleanId.slice(-1)}`;
+
+  // Default demo OTP code
+  const otpCode = '868999';
+
+  return {
+    success: true,
+    message: `Mã xác thực 6 số đã được tạo và gửi đến ${masked}`,
+    otp: otpCode,
+    maskedDestination: masked,
+  };
+}
+
+// DummyJSON Authentication: Verify OTP & Set New Password
+export async function resetPasswordApi(
+  identity: string,
+  otp: string,
+  newPassword: string
+): Promise<{ success: boolean; message?: string; error?: string }> {
+  if (!identity.trim()) {
+    return { success: false, error: 'Thông tin tài khoản không hợp lệ.' };
+  }
+  if (!otp.trim()) {
+    return { success: false, error: 'Vui lòng nhập mã xác thực OTP 6 số.' };
+  }
+  if (otp.trim() !== '868999' && otp.trim().length !== 6) {
+    return { success: false, error: 'Mã xác thực OTP không chính xác hoặc đã hết hạn.' };
+  }
+  if (newPassword.length < 6) {
+    return { success: false, error: 'Mật khẩu mới phải có tối thiểu 6 ký tự.' };
+  }
+
+  // Simulate server update
+  await new Promise((resolve) => setTimeout(resolve, 700));
+
+  return {
+    success: true,
+    message: 'Đặt lại mật khẩu thành công! Bạn có thể đăng nhập ngay với mật khẩu mới.',
+  };
+}
+
 // DummyJSON Orders & Carts: Sync Order to /carts/add
 export async function syncOrderToDummyJsonApi(
   orderData:
