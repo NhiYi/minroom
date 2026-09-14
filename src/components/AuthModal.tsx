@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { X, Lock, Mail, User, CheckCircle2, ArrowRight, ShieldCheck, KeyRound, Sparkles } from 'lucide-react';
 import { AuthUser } from '../types';
-import { loginToFakeStoreApi, registerToFakeStoreApi } from '../services/api';
+import { loginToDummyJsonApi, registerToDummyJsonApi } from '../services/api';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -25,9 +25,9 @@ export function AuthModal({
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
 
-  // Login inputs
-  const [loginUsername, setLoginUsername] = useState('mor_2314');
-  const [loginPassword, setLoginPassword] = useState('83r5^_');
+  // Login inputs with DummyJSON demo user
+  const [loginUsername, setLoginUsername] = useState('emilys');
+  const [loginPassword, setLoginPassword] = useState('emilyspass');
 
   // Register inputs
   const [regFullName, setRegFullName] = useState('');
@@ -48,7 +48,7 @@ export function AuthModal({
     setLoading(true);
 
     try {
-      const result = await loginToFakeStoreApi(loginUsername, loginPassword);
+      const result = await loginToDummyJsonApi(loginUsername, loginPassword);
       if (result.success && result.user) {
         setSuccessMsg(`Đăng nhập thành công! Chào mừng ${result.user.fullName || result.user.username}`);
         setTimeout(() => {
@@ -88,7 +88,7 @@ export function AuthModal({
     setLoading(true);
 
     try {
-      const result = await registerToFakeStoreApi(
+      const result = await registerToDummyJsonApi(
         regUsername,
         regEmail,
         regPassword,
@@ -119,8 +119,8 @@ export function AuthModal({
   };
 
   const fillDemoAccount = () => {
-    setLoginUsername('mor_2314');
-    setLoginPassword('83r5^_');
+    setLoginUsername('emilys');
+    setLoginPassword('emilyspass');
     setError('');
   };
 
@@ -134,14 +134,14 @@ export function AuthModal({
         <div className="bg-slate-900 text-white p-5 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-2.5">
             <div
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-serif font-black text-sm"
+              className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-sans font-black text-sm"
               style={{ backgroundColor: themeColor }}
             >
-              B.
+              T.
             </div>
             <div>
-              <h3 className="font-bold text-base leading-tight">BLOCKSY ATELIER</h3>
-              <p className="text-[11px] text-slate-400">Tài khoản khách hàng WooCommerce</p>
+              <h3 className="font-bold text-base leading-tight">TECHZONE STORE</h3>
+              <p className="text-[11px] text-slate-400">Tài khoản thành viên</p>
             </div>
           </div>
 
@@ -257,7 +257,7 @@ export function AuthModal({
               {/* Quick Demo Credentials Autofill */}
               <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between">
                 <div className="text-[11px] text-slate-500">
-                  <span className="font-semibold text-slate-700">Tài khoản mẫu:</span> mor_2314
+                  <span className="font-semibold text-slate-700">Tài khoản mẫu:</span> emilys (pass: emilyspass)
                 </div>
                 <button
                   type="button"
@@ -370,7 +370,7 @@ export function AuthModal({
 
               <div className="flex items-center gap-1.5 text-[11px] text-slate-500 pt-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Bảo mật thông tin thanh toán & tích điểm thành viên Blocksy</span>
+                <span>Bảo mật thông tin thanh toán & tích điểm thành viên</span>
               </div>
 
               <button

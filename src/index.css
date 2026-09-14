@@ -10,7 +10,7 @@
   }
 }
 
-/* Custom scrollbar for Blocksy mini cart and drawers */
+/* Custom scrollbar for cart and drawers */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

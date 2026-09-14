@@ -171,17 +171,17 @@ export function ProductQuickViewModal({
                   </div>
                 </div>
 
-                {/* Size Selector */}
+                {/* Size / Capacity Selector */}
                 <div className="mt-4">
                   <div className="flex justify-between items-center text-xs font-bold text-slate-800 mb-2">
-                    <span>KÍCH CỠ: <span className="font-normal text-slate-600">{selectedSize}</span></span>
+                    <span>DUNG LƯỢNG (ROM): <span className="font-normal text-slate-600">{selectedSize}</span></span>
                     <button
                       type="button"
                       onClick={() => setActiveTab('sizeChart')}
                       className="text-[11px] text-blue-600 hover:underline flex items-center gap-1 font-medium"
                     >
                       <Ruler className="w-3 h-3" />
-                      <span>Hướng dẫn chọn size</span>
+                      <span>Tư vấn dung lượng</span>
                     </button>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -262,7 +262,7 @@ export function ProductQuickViewModal({
                 </div>
               </div>
 
-              {/* Blocksy Accordion Info Tabs */}
+              {/* Accordion Info Tabs */}
               <div className="pt-4 border-t border-slate-100">
                 <div className="flex border-b border-slate-200 text-xs">
                   <button
@@ -273,7 +273,7 @@ export function ProductQuickViewModal({
                         : 'border-transparent text-slate-400 hover:text-slate-600'
                     }`}
                   >
-                    Chất liệu & Bảo quản
+                    Thông Số & Thiết Kế
                   </button>
                   <button
                     onClick={() => setActiveTab('sizeChart')}
@@ -283,7 +283,7 @@ export function ProductQuickViewModal({
                         : 'border-transparent text-slate-400 hover:text-slate-600'
                     }`}
                   >
-                    Bảng Size Chuẩn
+                    Tư Vấn Dung Lượng
                   </button>
                   <button
                     onClick={() => setActiveTab('shipping')}
@@ -293,33 +293,32 @@ export function ProductQuickViewModal({
                         : 'border-transparent text-slate-400 hover:text-slate-600'
                     }`}
                   >
-                    Giao Hàng & Đổi Trả
+                    Bảo Hành & Giao Hàng
                   </button>
                 </div>
 
                 <div className="pt-3 text-xs text-slate-600 leading-relaxed min-h-[70px]">
                   {activeTab === 'desc' && (
                     <div className="space-y-1">
-                      <p>• <strong>Chất liệu:</strong> {product.material}</p>
-                      <p>• Giặt máy ở chế độ nhẹ nhàng (dưới 30°C), không dùng chất tẩy mạnh.</p>
-                      <p>• Phơi nơi râm mát, ủi mặt trái ở nhiệt độ thấp.</p>
+                      <p>• <strong>Cấu tạo & vật liệu:</strong> {product.material}</p>
+                      <p>• <strong>Bộ sản phẩm gồm:</strong> Hộp đựng nguyên seal, thân máy, cáp sạc nhanh, que chọc SIM, tài liệu hướng dẫn.</p>
+                      <p>• <strong>Tình trạng:</strong> Hàng mới 100% chính hãng, đầy đủ hóa đơn VAT.</p>
                     </div>
                   )}
 
                   {activeTab === 'sizeChart' && (
                     <div className="space-y-1 text-[11px]">
-                      <p>• <strong>Size S:</strong> Dưới 53kg, chiều cao 1m55 - 1m62</p>
-                      <p>• <strong>Size M:</strong> 54kg - 63kg, chiều cao 1m63 - 1m70</p>
-                      <p>• <strong>Size L:</strong> 64kg - 72kg, chiều cao 1m70 - 1m76</p>
-                      <p>• <strong>Size XL:</strong> 73kg - 82kg, chiều cao 1m75 - 1m82</p>
+                      <p>• <strong>64GB - 128GB:</strong> Phù hợp nhu cầu cơ bản, chụp ảnh vừa phải và ứng dụng hàng ngày.</p>
+                      <p>• <strong>256GB:</strong> Dung lượng tiêu chuẩn, thoải mái quay video 4K, lưu trữ game nặng.</p>
+                      <p>• <strong>512GB - 1TB:</strong> Lựa chọn tối ưu cho nhà sáng tạo nội dung, quay video ProRes chuyên nghiệp.</p>
                     </div>
                   )}
 
                   {activeTab === 'shipping' && (
                     <div className="space-y-1 text-[11px]">
-                      <p>• Giao hỏa tốc 2 giờ nội thành Hà Nội & TP.HCM.</p>
-                      <p>• Giao tiêu chuẩn 2-3 ngày toàn quốc (Miễn phí cho đơn từ 500k).</p>
-                      <p>• Đổi size và mẫu miễn phí trong 30 ngày nếu chưa qua sử dụng.</p>
+                      <p>• <strong>Giao hỏa tốc 2 giờ:</strong> Áp dụng nội thành Hà Nội & TP.HCM.</p>
+                      <p>• <strong>Bảo hành chính hãng:</strong> 12 tháng tại các trung tâm ủy quyền toàn quốc.</p>
+                      <p>• <strong>1 đổi 1 trong 30 ngày:</strong> Miễn phí đổi mới nếu phát sinh lỗi từ nhà sản xuất.</p>
                     </div>
                   )}
                 </div>

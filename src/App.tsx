@@ -17,13 +17,13 @@ import { CustomerReviews } from './components/CustomerReviews';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  // Theme styling (Blocksy Palette)
+  // Theme styling
   const [themeColor, setThemeColor] = useState('#1e293b');
 
   // Customer Authentication state
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(() => {
     try {
-      const saved = localStorage.getItem('blocksy_user');
+      const saved = localStorage.getItem('techzone_user');
       if (saved) return JSON.parse(saved);
     } catch {
       // ignore
@@ -60,7 +60,7 @@ export default function App() {
   // Cart State (Persisted in localStorage)
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
-      const saved = localStorage.getItem('blocksy_cart');
+      const saved = localStorage.getItem('techzone_cart');
       if (saved) return JSON.parse(saved);
     } catch {
       // ignore
@@ -68,9 +68,9 @@ export default function App() {
     // Default initial cart item
     return [
       {
-        id: 'prod-1-M-Be Khói',
+        id: `${PRODUCTS[0].id}-${PRODUCTS[0].sizes[0]}-${PRODUCTS[0].colors[0].name}`,
         product: PRODUCTS[0],
-        selectedSize: 'M',
+        selectedSize: PRODUCTS[0].sizes[0],
         selectedColor: PRODUCTS[0].colors[0],
         quantity: 1,
       },
@@ -80,12 +80,12 @@ export default function App() {
   // Wishlist State (Persisted in localStorage)
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('blocksy_wishlist');
+      const saved = localStorage.getItem('techzone_wishlist');
       if (saved) return JSON.parse(saved);
     } catch {
       // ignore
     }
-    return ['1', '2', '3'];
+    return ['phone-1', 'phone-4', 'acc-1'];
   });
 
   // Modals & Drawers state
@@ -100,7 +100,7 @@ export default function App() {
   const [filter, setFilter] = useState<FilterState>({
     category: 'all',
     minPrice: 0,
-    maxPrice: 3000000,
+    maxPrice: 35000000,
     selectedSizes: [],
     selectedColors: [],
     sortBy: 'default',
@@ -110,7 +110,7 @@ export default function App() {
   // Sync cart to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('blocksy_cart', JSON.stringify(cartItems));
+      localStorage.setItem('techzone_cart', JSON.stringify(cartItems));
     } catch {
       // ignore
     }
@@ -119,7 +119,7 @@ export default function App() {
   // Sync wishlist to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('blocksy_wishlist', JSON.stringify(wishlistIds));
+      localStorage.setItem('techzone_wishlist', JSON.stringify(wishlistIds));
     } catch {
       // ignore
     }
@@ -129,9 +129,9 @@ export default function App() {
   useEffect(() => {
     try {
       if (currentUser) {
-        localStorage.setItem('blocksy_user', JSON.stringify(currentUser));
+        localStorage.setItem('techzone_user', JSON.stringify(currentUser));
       } else {
-        localStorage.removeItem('blocksy_user');
+        localStorage.removeItem('techzone_user');
       }
     } catch {
       // ignore
@@ -198,7 +198,7 @@ export default function App() {
       if (filter.sortBy === 'price-desc') return b.price - a.price;
       if (filter.sortBy === 'rating') return b.rating - a.rating;
       if (filter.sortBy === 'popular') return b.reviewCount - a.reviewCount;
-      return 0; // default Blocksy catalog sorting
+      return 0; // default catalog sorting
     });
   }, [filter, products]);
 
@@ -278,7 +278,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#f9fafb] flex flex-col selection:bg-slate-900 selection:text-white">
-      {/* 1. Main Blocksy Header */}
+      {/* 1. Main Header */}
       <Header
         cartItems={cartItems}
         wishlistCount={wishlistIds.length}
@@ -293,7 +293,7 @@ export default function App() {
         onLogout={handleLogout}
       />
 
-      {/* 3. Blocksy Hero Section */}
+      {/* 3. Hero Section */}
       <HeroBanner
         onExploreClick={() => {
           const el = document.getElementById('san-pham');
@@ -302,26 +302,26 @@ export default function App() {
         themeColor={themeColor}
       />
 
-      {/* 4. Product Catalog / WooCommerce Archive Section */}
+      {/* 4. Product Catalog Archive Section */}
       <main id="san-pham" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 w-full">
         
         {/* Section Title Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-slate-200">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-                WOOCOMMERCE STORE
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+                FLAGSHIP STORE
               </span>
               <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>FakeStoreAPI Live</span>
+                <span>Hàng Sẵn Giao 2H</span>
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Bộ Sưu Tập Thời Trang Trực Tuyến
+              Điện Thoại Thông Minh & Công Nghệ Chính Hãng
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Dữ liệu danh mục quần áo & phụ kiện được đồng bộ trực tiếp từ FakeStoreAPI.
+              Bộ sưu tập smartphone hàng đầu từ Apple, Samsung, Oppo, Realme, Vivo với ưu đãi tốt nhất.
             </p>
           </div>
 
@@ -342,7 +342,7 @@ export default function App() {
           />
         </div>
 
-        {/* Product Cards Grid (Blocksy WooCommerce Layout) */}
+        {/* Product Cards Grid */}
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {Array.from({ length: 8 }).map((_, i) => (
@@ -370,7 +370,7 @@ export default function App() {
                 setFilter({
                   category: 'all',
                   minPrice: 0,
-                  maxPrice: 3000000,
+                  maxPrice: 35000000,
                   selectedSizes: [],
                   selectedColors: [],
                   sortBy: 'default',
@@ -402,7 +402,7 @@ export default function App() {
         )}
       </main>
 
-      {/* 5. Blocksy Editorial Lookbook Grid */}
+      {/* 5. Editorial Lookbook Grid */}
       <LookbookSection
         onQuickView={(p) => setQuickViewProduct(p)}
         products={products}
@@ -412,12 +412,12 @@ export default function App() {
       {/* 6. Customer Testimonials */}
       <CustomerReviews />
 
-      {/* 7. Blocksy Multi-Widget Footer */}
+      {/* 7. Multi-Widget Footer */}
       <Footer themeColor={themeColor} />
 
       {/* --- Interactive Modals & Offcanvas Drawers --- */}
 
-      {/* Blocksy Quick View Modal */}
+      {/* Quick View Modal */}
       <ProductQuickViewModal
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
@@ -430,7 +430,7 @@ export default function App() {
         themeColor={themeColor}
       />
 
-      {/* Blocksy Slide-over Cart Drawer */}
+      {/* Slide-over Cart Drawer */}
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}

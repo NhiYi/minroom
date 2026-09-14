@@ -57,15 +57,15 @@ export function WishlistDrawer({
                 <div className="space-y-1">
                   <h3 className="font-bold text-slate-800 text-sm">Chưa có sản phẩm yêu thích</h3>
                   <p className="text-xs text-slate-500 max-w-xs">
-                    Nhấn vào biểu tượng trái tim ở các mẫu thiết kế để lưu lại xem sau.
+                    Nhấn vào biểu tượng trái tim ở các mẫu điện thoại để lưu lại xem sau.
                   </p>
                 </div>
                 <button
                   onClick={onClose}
-                  className="px-5 py-2.5 rounded-lg text-xs font-bold text-white shadow-sm transition"
+                  className="px-5 py-2.5 rounded-lg text-xs font-bold text-white shadow-sm transition cursor-pointer"
                   style={{ backgroundColor: themeColor }}
                 >
-                  Khám phá thời trang
+                  Khám phá điện thoại
                 </button>
               </div>
             ) : (

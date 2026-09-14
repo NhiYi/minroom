@@ -1,6 +1,6 @@
 {
-  "name": "Blocksy Fashion Store",
-  "description": "Website bán quần áo phong cách WordPress theme Blocksy hiện đại, thanh lịch với giỏ hàng mini, bộ lọc sản phẩm và trải nghiệm mua sắm mượt mà.",
+  "name": "TechZone Mobile Store",
+  "description": "Cửa hàng bán lẻ điện thoại thông minh và phụ kiện công nghệ chính hãng Apple, Samsung, Oppo, Realme, Vivo.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

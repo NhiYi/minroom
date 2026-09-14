@@ -14,7 +14,7 @@ interface SearchModalProps {
 export function SearchModal({ isOpen, onClose, onSelectProduct, products = PRODUCTS }: SearchModalProps) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const trendingTerms = ['Mens', 'Womens', 'Jacket', 'Shirt', 'Backpack'];
+  const trendingTerms = ['iPhone 13 Pro', 'Samsung Galaxy', 'Oppo', 'Realme', 'Vivo', 'AirPods Max', 'Sạc nhanh'];
 
   const results = useMemo(() => {
     if (!searchTerm.trim()) return [];
@@ -47,7 +47,7 @@ export function SearchModal({ isOpen, onClose, onSelectProduct, products = PRODU
               autoFocus
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Tìm kiếm áo sơ mi, blazer, đầm nữ..."
+              placeholder="Tìm kiếm iPhone 13 Pro, Samsung Galaxy, Oppo, sạc nhanh..."
               className="w-full text-base outline-none text-slate-900 placeholder:text-slate-400 font-medium"
             />
             {searchTerm && (

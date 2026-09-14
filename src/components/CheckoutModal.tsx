@@ -113,7 +113,7 @@ export function CheckoutModal({
             <div>
               <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-emerald-600" />
-                <span>Blocksy WooCommerce Checkout</span>
+                <span>Thanh Toán Đơn Hàng</span>
               </h2>
               <p className="text-[11px] text-slate-500">
                 Thanh toán an toàn, bảo mật thông tin chuẩn SSL
@@ -175,7 +175,7 @@ export function CheckoutModal({
                     <div className="text-xs space-y-1 text-slate-600">
                       <div>Ngân hàng: <strong>Techcombank</strong></div>
                       <div>Số tài khoản: <strong>1903 6868 8866</strong></div>
-                      <div>Chủ tài khoản: <strong>BLOCKSY ATELIER VN</strong></div>
+                      <div>Chủ tài khoản: <strong>TECHZONE STORE VIETNAM</strong></div>
                       <div>Số tiền: <strong className="text-rose-600">{formatPrice(finalTotal)}</strong></div>
                       <div>Nội dung: <strong className="text-blue-600">{orderId}</strong></div>
                     </div>
@@ -184,7 +184,7 @@ export function CheckoutModal({
               )}
 
               <div className="border-t pt-4 max-w-sm mx-auto text-xs text-slate-500 space-y-1">
-                <p>Nhân viên Blocksy sẽ liên hệ qua SĐT <strong>{formData.phone}</strong> trong vòng 15 phút để xác nhận đơn hàng.</p>
+                <p>Chuyên viên chăm sóc khách hàng sẽ liên hệ qua SĐT <strong>{formData.phone}</strong> trong vòng 15 phút để xác nhận đơn hàng.</p>
                 <p>Thời gian giao hàng dự kiến: <strong>1-2 ngày làm việc</strong>.</p>
               </div>
 
@@ -405,7 +405,7 @@ export function CheckoutModal({
                         <div className="flex-1 min-w-0">
                           <p className="font-semibold text-slate-800 truncate">{item.product.name}</p>
                           <p className="text-[11px] text-slate-400">
-                            Size {item.selectedSize} | SL: {item.quantity}
+                            Bản {item.selectedSize} | SL: {item.quantity}
                           </p>
                         </div>
                         <span className="font-bold text-slate-900 text-xs">
@@ -452,13 +452,13 @@ export function CheckoutModal({
                 <div className="pt-6">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl text-white font-bold text-xs shadow-md transition hover:opacity-95"
+                    className="w-full py-3.5 rounded-xl text-white font-bold text-xs shadow-md transition hover:opacity-95 cursor-pointer"
                     style={{ backgroundColor: themeColor }}
                   >
                     Hoàn Tất Đặt Hàng ({formatPrice(finalTotal)})
                   </button>
                   <p className="text-[10px] text-slate-400 text-center mt-2">
-                    Bằng việc đặt hàng, bạn đồng ý với Điều khoản mua sắm của Blocksy Atelier.
+                    Bằng việc đặt hàng, bạn đồng ý với Điều khoản mua sắm của TechZone Mobile Store.
                   </p>
                 </div>
 

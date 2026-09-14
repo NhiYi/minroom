@@ -41,7 +41,7 @@ export function ProductCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Product Image Container with Blocksy Hover Actions */}
+      {/* Product Image Container with Hover Actions */}
       <div
         className="relative aspect-[3/4] w-full overflow-hidden bg-white p-4 cursor-pointer flex items-center justify-center"
         onClick={() => onQuickView(product)}
@@ -102,7 +102,7 @@ export function ProductCard({
           </button>
         </div>
 
-        {/* Bottom Slide-Up "Quick Add To Cart" Button (Signature Blocksy feature) */}
+        {/* Bottom Slide-Up "Quick Add To Cart" Button */}
         <div className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/40 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
           <button
             onClick={handleQuickAdd}
@@ -167,7 +167,7 @@ export function ProductCard({
             />
           ))}
           <span className="text-[11px] text-slate-400 ml-1">
-            {product.sizes.length} sizes
+            {product.sizes.length} tùy chọn
           </span>
         </div>
 

@@ -44,7 +44,7 @@ export function ProductFilters({
     onFilterChange({
       category: 'all',
       minPrice: 0,
-      maxPrice: 1500000,
+      maxPrice: 35000000,
       selectedSizes: [],
       selectedColors: [],
       sortBy: 'default',
@@ -55,17 +55,17 @@ export function ProductFilters({
   const hasActiveFilters =
     filter.category !== 'all' ||
     filter.selectedSizes.length > 0 ||
-    filter.maxPrice < 1500000 ||
+    filter.maxPrice < 35000000 ||
     filter.searchQuery.length > 0;
 
   return (
     <div className="space-y-6">
-      {/* Top Filter Bar with Blocksy Layout: Count & Sort */}
+      {/* Top Filter Bar: Count & Sort */}
       <div className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-sm text-slate-600">
           <SlidersHorizontal className="w-4 h-4 text-slate-500" />
           <span>
-            Hiển thị <strong>{totalProducts}</strong> sản phẩm thời trang
+            Hiển thị <strong>{totalProducts}</strong> điện thoại & phụ kiện
           </span>
           {filter.searchQuery && (
             <span className="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-medium">
@@ -83,7 +83,7 @@ export function ProductFilters({
             onChange={handleSortChange}
             className="text-xs font-semibold text-slate-800 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:ring-slate-400 cursor-pointer"
           >
-            <option value="default">Thứ tự mặc định (Blocksy)</option>
+            <option value="default">Thứ tự mặc định</option>
             <option value="popular">Phổ biến & Bán chạy</option>
             <option value="rating">Đánh giá cao nhất</option>
             <option value="price-asc">Giá: Thấp đến Cao</option>
@@ -92,7 +92,7 @@ export function ProductFilters({
         </div>
       </div>
 
-      {/* Category Pills (Blocksy Archive Categories Filter) */}
+      {/* Category Pills */}
       <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
         {categories.map((cat) => {
           const isActive = filter.category === cat.id;
@@ -128,7 +128,7 @@ export function ProductFilters({
         {/* Size Selection */}
         <div>
           <span className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">
-            Kích cỡ (Size)
+            Dung lượng bộ nhớ (ROM)
           </span>
           <div className="flex flex-wrap gap-2">
             {availableSizes.map((size) => {
@@ -137,7 +137,7 @@ export function ProductFilters({
                 <button
                   key={size}
                   onClick={() => handleSizeToggle(size)}
-                  className={`w-9 h-9 rounded-lg text-xs font-bold transition flex items-center justify-center border ${
+                  className={`h-9 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center border ${
                     isSelected
                       ? 'bg-slate-900 text-white border-slate-900 shadow-sm'
                       : 'bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-white'
@@ -162,9 +162,9 @@ export function ProductFilters({
           </div>
           <input
             type="range"
-            min="300000"
-            max="1500000"
-            step="50000"
+            min="1000000"
+            max="35000000"
+            step="500000"
             value={filter.maxPrice}
             onChange={(e) =>
               onFilterChange({ ...filter, maxPrice: Number(e.target.value) })
@@ -172,8 +172,8 @@ export function ProductFilters({
             className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900"
           />
           <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-            <span>300.000₫</span>
-            <span>1.500.000₫</span>
+            <span>1.000.000₫</span>
+            <span>35.000.000₫</span>
           </div>
         </div>
       </div>

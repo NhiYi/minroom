@@ -58,15 +58,17 @@ export function Header({
   const totalPrice = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
 
   const navLinks = [
-    { id: 'all', label: 'Tất cả sản phẩm' },
-    { id: 'nam', label: 'Thời trang Nam' },
-    { id: 'nu', label: 'Thời trang Nữ' },
-    { id: 'phu-kien', label: 'Trang sức & Phụ kiện' },
+    { id: 'all', label: 'Tất cả điện thoại' },
+    { id: 'apple', label: 'Apple iPhone' },
+    { id: 'samsung', label: 'Samsung Galaxy' },
+    { id: 'oppo-realme', label: 'Oppo & Realme' },
+    { id: 'vivo', label: 'Vivo Smartphones' },
+    { id: 'accessories', label: 'Phụ kiện Mobile' },
   ];
 
   return (
     <header className="w-full z-40 bg-white">
-      {/* Top Bar - Signature Blocksy Top Bar Builder */}
+      {/* Top Bar */}
       <div className="bg-[#0f172a] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-4 text-[11px]">
@@ -112,7 +114,7 @@ export function Header({
         </div>
       </div>
 
-      {/* Main Blocksy Header */}
+      {/* Main Header */}
       <div
         className={`sticky top-0 transition-all duration-200 border-b border-slate-100 ${
           isScrolled ? 'shadow-md py-3 bg-white/95 backdrop-blur-md' : 'py-4 bg-white'
@@ -131,7 +133,7 @@ export function Header({
             </button>
           </div>
 
-          {/* Logo - Blocksy Style Clean Typography */}
+          {/* Logo - Modern Clean Typography */}
           <div
             onClick={() => {
               onSelectCategory('all');
@@ -141,18 +143,18 @@ export function Header({
           >
             <div className="flex items-center gap-1.5">
               <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
-                BLOCKSY<span style={{ color: themeColor }}>.</span>
+                TECHZONE<span style={{ color: themeColor }}>.</span>
               </span>
-              <span className="text-[10px] tracking-widest font-bold uppercase bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 hidden sm:inline">
-                ATELIER
+              <span className="text-[10px] tracking-widest font-bold uppercase bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded hidden sm:inline">
+                STORE
               </span>
             </div>
             <span className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-semibold -mt-1">
-              Wordpress Fashion Theme
+              ĐIỆN THOẠI & CÔNG NGHỆ CHÍNH HÃNG
             </span>
           </div>
 
-          {/* Desktop Navigation Menu (Signature Blocksy Header Nav) */}
+          {/* Desktop Navigation Menu */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => {
               const isActive = activeCategory === link.id;
@@ -272,7 +274,7 @@ export function Header({
               )}
             </button>
 
-            {/* Blocksy Mini Cart Button (Header Cart with Total Price) */}
+            {/* Mini Cart Button */}
             <button
               onClick={onOpenCart}
               className="flex items-center gap-2.5 pl-3 pr-4 py-2 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition shadow-sm group cursor-pointer"
@@ -343,7 +345,7 @@ export function Header({
             )}
 
             <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
-              Danh mục thời trang
+              Danh mục điện thoại & công nghệ
             </div>
             {navLinks.map((link) => (
               <button

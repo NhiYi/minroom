@@ -4,30 +4,30 @@ export function CustomerReviews() {
   const reviews = [
     {
       id: 1,
-      name: 'Thùy Linh',
+      name: 'Quốc Tuấn',
       location: 'Hà Nội',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
       rating: 5,
-      product: 'Áo Blazer Linen Phom Rộng',
-      comment: 'Chất vải linen rất mát và dày dặn, phom áo đứng cực kỳ ưng ý. Đóng gói hộp rất chỉn chu, đúng chất boutique cao cấp. Giao hàng hỏa tốc trong 2h là nhận được rồi.',
+      product: 'iPhone 13 Pro Sierra Blue',
+      comment: 'Máy nguyên seal chuẩn chính hãng VN/A, bóc seal tại chỗ rất yên tâm. Màn hình 120Hz siêu mượt và camera chụp đêm xuất sắc. Giao hỏa tốc 2 giờ đúng hẹn.',
     },
     {
       id: 2,
       name: 'Minh Hoàng',
       location: 'TP. Hồ Chí Minh',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',
       rating: 5,
-      product: 'Áo Sơ Mi Oxford Relaxed Fit',
-      comment: 'Áo sơ mi Oxford chất vải dệt chắc chắn, cổ áo cứng cáp không bị gãy khi giặt. Form dáng thoải mái vừa vặn, mặc đi làm cả ngày không thấy bức bối. Sẽ ủng hộ shop dài lâu!',
+      product: 'Samsung Galaxy Flagship',
+      comment: 'Đã mua máy thứ 2 tại TechZone. Chính sách 1 đổi 1 trong 30 ngày rất rõ ràng, nhân viên hỗ trợ chuyển toàn bộ dữ liệu từ máy cũ sang rất chu đáo. 5 sao!',
     },
     {
       id: 3,
       name: 'Phương Thảo',
       location: 'Đà Nẵng',
-      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
       rating: 5,
-      product: 'Đầm Maxi Xếp Ly Nữ Tính',
-      comment: 'Chiếc đầm đẹp hơn cả mong đợi! Từng đường dập ly đều tăm tắp, lót trong êm ái kín đáo. Mình mặc đi tiệc cưới bạn ai cũng hỏi mua ở đâu. 10/10 điểm cho chất lượng.',
+      product: 'Oppo Reno Smartphone',
+      comment: 'Máy thiết kế mỏng nhẹ, màu sắc lấp lánh cực đẹp. Công nghệ sạc nhanh thần tốc 30 phút đầy pin, chụp ảnh chân dung xóa phông tự nhiên không cần chỉnh sửa.',
     },
   ];
 
@@ -43,7 +43,7 @@ export function CustomerReviews() {
             Đánh Giá Từ Khách Hàng Thực Tế
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm mt-2">
-            Hơn 10.000+ phản hồi 5 sao từ khách hàng yêu thích gu thời trang tối giản của Blocksy Atelier.
+            Hơn 12.000+ phản hồi 5 sao từ khách hàng tin tưởng chọn mua điện thoại & phụ kiện chính hãng tại TechZone.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export function CustomerReviews() {
                   </div>
                 </div>
 
-                <span className="text-[10px] font-medium bg-slate-50 border border-slate-200 px-2 py-1 rounded text-slate-600 truncate max-w-[120px]">
+                <span className="text-[10px] font-medium bg-slate-50 border border-slate-200 px-2 py-1 rounded text-slate-600 truncate max-w-[130px]">
                   {rev.product}
                 </span>
               </div>

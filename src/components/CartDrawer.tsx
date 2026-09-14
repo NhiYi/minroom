@@ -56,7 +56,7 @@ export function CartDrawer({
 
     if (COUPONS[code]) {
       const c = COUPONS[code];
-      if (subtotal < c.minOrder) {
+      if (c.minOrder && subtotal < c.minOrder) {
         setCouponError(`Mã này áp dụng cho đơn từ ${formatPrice(c.minOrder)}`);
         return;
       }
@@ -64,7 +64,7 @@ export function CartDrawer({
       setCouponError('');
       setCouponInput('');
     } else {
-      setCouponError('Mã giảm giá không hợp lệ. Thử: BLOCKSY10');
+      setCouponError('Mã giảm giá không hợp lệ. Thử: SMART10');
     }
   };
 
@@ -90,7 +90,7 @@ export function CartDrawer({
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-slate-800" />
               <h2 className="text-base font-bold text-slate-900">
-                Giỏ Hàng Blocksy ({cartItems.reduce((sum, item) => sum + item.quantity, 0)})
+                Giỏ Hàng Của Bạn ({cartItems.reduce((sum, item) => sum + item.quantity, 0)})
               </h2>
             </div>
             <button
@@ -101,7 +101,7 @@ export function CartDrawer({
             </button>
           </div>
 
-          {/* Free Shipping Progress Bar (Blocksy WooCommerce feature) */}
+          {/* Free Shipping Progress Bar */}
           <div className="bg-slate-50 px-6 py-3 border-b border-slate-200/80">
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 mb-2">
               <Truck className="w-4 h-4 text-emerald-600" />
@@ -133,7 +133,7 @@ export function CartDrawer({
                 <div className="space-y-1">
                   <h3 className="font-bold text-slate-800 text-sm">Giỏ hàng của bạn đang trống</h3>
                   <p className="text-xs text-slate-500 max-w-xs">
-                    Hãy khám phá các sản phẩm áo sơ mi, blazer và đầm hè mới nhất của chúng tôi.
+                    Hãy khám phá các dòng điện thoại Apple, Samsung, Oppo và phụ kiện mới nhất của chúng tôi.
                   </p>
                 </div>
                 <button
@@ -162,7 +162,7 @@ export function CartDrawer({
 
                     <div className="flex items-center gap-2 mt-1 text-[11px] text-slate-500">
                       <span className="bg-slate-100 px-1.5 py-0.5 rounded font-medium">
-                        Size {item.selectedSize}
+                        Bản {item.selectedSize}
                       </span>
                       <span className="flex items-center gap-1">
                         <span
@@ -222,7 +222,7 @@ export function CartDrawer({
                     <Tag className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-3" />
                     <input
                       type="text"
-                      placeholder="Mã giảm giá (ví dụ: BLOCKSY10)"
+                      placeholder="Mã giảm giá (ví dụ: SMART10)"
                       value={couponInput}
                       onChange={(e) => setCouponInput(e.target.value)}
                       className="w-full pl-8 pr-3 py-2 text-xs border border-slate-200 rounded-lg outline-none uppercase font-semibold"
